@@ -1,0 +1,210 @@
+import streamlit as st
+
+def main():
+    st.set_page_config(page_title="PrexorAI Project Planner", layout="wide")
+    st.title("PrexorAI: Project Plan Generator")
+
+    st.markdown("""
+    This tool guides you through building a **Project Charter** and a **Project Plan** 
+    following the steps recommended by Prexor Management, LLC. 
+    Please fill out each section. When done, click **Generate Project Plan** at the bottom.
+    """)
+
+    # 1. Project Description / Business Context
+    st.header("1. Project Overview")
+    project_name = st.text_input("Project Name", "Operational Efficiency Improvement for [Client Business Name]")
+    project_description = st.text_area(
+        "Project Description",
+        "Describe what this project is about, its purpose, and context..."
+    )
+    project_purpose = st.text_area(
+        "Project Purpose",
+        "Explain the purpose of the project (e.g. 'Optimize business operations...')"
+    )
+    project_justification = st.text_area(
+        "Justification",
+        "Why is this project needed? What problem or opportunity does it address?"
+    )
+
+    # 2. Objectives
+    st.header("2. Project Objectives")
+    st.markdown("List the objectives that your project intends to achieve.")
+    project_objectives = st.text_area(
+        "Objectives",
+        "1. Conduct an operational assessment to identify inefficiencies.\n"
+        "2. Develop a streamlined workflow...\n"
+        "3. Implement key performance indicators...\n"
+    )
+
+    # 3. Scope
+    st.header("3. Scope Management")
+    in_scope = st.text_area(
+        "In-Scope Items",
+        "List what is included in the scope of this project.\n(e.g., assessment of current operations, staff training...)"
+    )
+    out_of_scope = st.text_area(
+        "Out-of-Scope Items",
+        "List what is not included in the scope.\n(e.g., full-scale software development, direct hiring...)"
+    )
+    high_level_requirements = st.text_area(
+        "High-Level Requirements",
+        "List the high-level requirements for successful project completion.\n(e.g., dedicated business personnel, willingness to adapt...)"
+    )
+    success_criteria = st.text_area(
+        "Project Success Criteria",
+        "List how you will measure success.\n(e.g., reduce inefficiencies by 15%, 80% adherence to new workflows...)"
+    )
+
+    # 4. Schedule
+    st.header("4. Schedule Management")
+    schedule_approach = st.text_area(
+        "Schedule Approach",
+        "Describe rules for managing the schedule. How will you define activities, estimate durations, sequence tasks, etc.?"
+    )
+    high_level_schedule = st.text_area(
+        "High-Level Schedule / Milestones",
+        "Describe the major phases and timelines.\n(e.g., Week 1: Kickoff, Weeks 2-4: Operational Assessment...)"
+    )
+
+    # 5. Cost
+    st.header("5. Cost Management")
+    cost_approach = st.text_area(
+        "Cost Management Approach",
+        "What are the rules for managing cost?\n(e.g., 'If I go over budget, who can approve it?')"
+    )
+    estimated_costs = st.text_area(
+        "Budget Estimate",
+        "List your budget categories and amounts.\n(e.g., Project Management: $XX,XXX, Training: $XX,XXX...)"
+    )
+
+    # 6. Quality
+    st.header("6. Quality Management")
+    quality_standards = st.text_area(
+        "Quality Management Plan",
+        "What are the standards of quality for the project deliverables?\nHow will you monitor and control quality?"
+    )
+
+    # 7. Resources
+    st.header("7. Resource Management")
+    resource_approach = st.text_area(
+        "Resource Management Approach",
+        "Describe the rules for managing resources.\n(e.g., who recruits/assigns people, what tools are allowed, etc.)"
+    )
+    resource_estimates = st.text_area(
+        "Resource Estimates",
+        "How many people and what types of resources are needed?\n(e.g., 1 project manager, 2 analysts...)"
+    )
+
+    # 8. Communications
+    st.header("8. Communications Management")
+    communications_plan = st.text_area(
+        "Plan Communications",
+        "Who do we communicate with, what do we communicate, when, how often, and under what conditions?"
+    )
+
+    # 9. Risk
+    st.header("9. Risk Management")
+    risk_approach = st.text_area(
+        "Risk Management Approach",
+        "What is your organization's/team's risk tolerance?\n(e.g., how do you identify, analyze, and respond to risks?)"
+    )
+    top_risks = st.text_area(
+        "Potential Risks & Mitigation Strategies",
+        "List the major risks and how you plan to address them.\n(e.g., Resistance to change -> Early buy-in meetings...)"
+    )
+
+    # 10. Procurement
+    st.header("10. Procurement Management")
+    procurement_plan = st.text_area(
+        "Plan Procurement",
+        "What products/services must be acquired outside the organization?\n(e.g., specialized tools, consultants, etc.)"
+    )
+
+    # 11. Stakeholders
+    st.header("11. Stakeholder Management")
+    stakeholder_approach = st.text_area(
+        "Stakeholder Engagement Plan",
+        "How will you identify, engage, and manage stakeholders throughout the project?"
+    )
+    key_stakeholders = st.text_area(
+        "Key Stakeholders",
+        "List or describe the individuals/groups with an interest in or influence on the project.\n(e.g., sponsor, department leads...)"
+    )
+
+    # Generate Project Charter
+    st.header("12. Generate the Project Plan")
+    st.markdown("Click below to compile all your entries into a project plan.")
+
+    if st.button("Generate Project Plan"):
+        st.subheader("Project Charter & Plan")
+        st.write("---")
+
+        # 1. Overview
+        st.markdown(f"**Project Name:** {project_name}")
+        st.markdown(f"**Project Description:** {project_description}")
+        st.markdown(f"**Project Purpose:** {project_purpose}")
+        st.markdown(f"**Justification:** {project_justification}")
+        st.write("---")
+
+        # 2. Objectives
+        st.markdown("### Project Objectives")
+        st.write(project_objectives)
+        st.write("---")
+
+        # 3. Scope
+        st.markdown("### Scope Management")
+        st.markdown(f"**In-Scope:**\n{in_scope}")
+        st.markdown(f"**Out-of-Scope:**\n{out_of_scope}")
+        st.markdown(f"**High-Level Requirements:**\n{high_level_requirements}")
+        st.markdown(f"**Project Success Criteria:**\n{success_criteria}")
+        st.write("---")
+
+        # 4. Schedule
+        st.markdown("### Schedule Management")
+        st.markdown(f"**Approach:**\n{schedule_approach}")
+        st.markdown(f"**High-Level Schedule / Milestones:**\n{high_level_schedule}")
+        st.write("---")
+
+        # 5. Cost
+        st.markdown("### Cost Management")
+        st.markdown(f"**Cost Management Approach:**\n{cost_approach}")
+        st.markdown(f"**Budget Estimate:**\n{estimated_costs}")
+        st.write("---")
+
+        # 6. Quality
+        st.markdown("### Quality Management")
+        st.write(quality_standards)
+        st.write("---")
+
+        # 7. Resources
+        st.markdown("### Resource Management")
+        st.markdown(f"**Approach:**\n{resource_approach}")
+        st.markdown(f"**Resource Estimates:**\n{resource_estimates}")
+        st.write("---")
+
+        # 8. Communications
+        st.markdown("### Communications Management")
+        st.write(communications_plan)
+        st.write("---")
+
+        # 9. Risk
+        st.markdown("### Risk Management")
+        st.markdown(f"**Approach:**\n{risk_approach}")
+        st.markdown(f"**Potential Risks & Mitigation Strategies:**\n{top_risks}")
+        st.write("---")
+
+        # 10. Procurement
+        st.markdown("### Procurement Management")
+        st.write(procurement_plan)
+        st.write("---")
+
+        # 11. Stakeholders
+        st.markdown("### Stakeholder Management")
+        st.markdown(f"**Approach:**\n{stakeholder_approach}")
+        st.markdown(f"**Key Stakeholders:**\n{key_stakeholders}")
+
+        st.success("Your project plan has been generated successfully!")
+        st.info("You can copy/paste your plan from here or use a PDF generator to export it.")
+
+if __name__ == "__main__":
+    main()
